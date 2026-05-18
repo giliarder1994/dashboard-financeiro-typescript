@@ -1,4 +1,4 @@
-# 💰 Dashboard Financeiro - API REST (TypeScript)
+# 💰 Dashboard Financeiro - API REST
 
 API REST para gerenciamento financeiro pessoal, desenvolvida com **Node.js**, **Express**, **TypeScript** e **MySQL**.
 O projeto permite controle de receitas, despesas, categorias e autenticação de usuários utilizando JWT, seguindo uma arquitetura organizada e fortemente tipada.
