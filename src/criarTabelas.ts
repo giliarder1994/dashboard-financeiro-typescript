@@ -2,7 +2,7 @@ import "dotenv/config";
 import mysql from "mysql2/promise"; 
 
 async function criarTabelas(): Promise<void> {
-    // Criamos uma conexão inicial SEM especificar o banco de dados
+    
     const conexaoInicial = await mysql.createConnection({
         host: process.env.DB_HOST || "localhost",
         user: process.env.DB_USER || "root",
@@ -10,15 +10,14 @@ async function criarTabelas(): Promise<void> {
     });
 
     try {
-        // Cria o banco de dados se ele não existir
+        // Cria o banco de dados
         await conexaoInicial.query("CREATE DATABASE IF NOT EXISTS dashboard_financeiro;");
         console.log("✅ Banco de dados 'dashboard_financeiro' garantido!");
         
-        // Fechamos a conexão temporária
         await conexaoInicial.end();
 
-        // Agora que o banco existe, criamos a conexão final (com o banco correto)
-        // Aqui usamos as configurações que você já tem no seu db.js
+        // Agora que o banco existe, criei a conexão final (com o banco correto)
+        // Aqui usei as configurações que já tinha no db.js
         const { default: pool } = await import("./db.js");
         const conexao = pool.promise();
 
